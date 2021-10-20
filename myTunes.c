@@ -29,6 +29,7 @@ struct song_node * insert_order(struct song_node *front, char *name, char *artis
 	struct song_node *n = make_song(name, artist);
     return n;
 }
+//USE HELPER FUNCTION TO EFFECTIVELY COMPARE SONG NODES
 
 void print_song(struct song_node * s) {
    printf("song name: '%s'\tartist: '%s' \n", s->name, s->artist);
