@@ -59,7 +59,7 @@ struct song_node * remove_node(struct song_node *s, char *name, char *artist) {
 	struct song_node *n = make_song("placeholder", "placeholder");
     return n;
 }
-struct song_node *free_list(struct song_node *n) {
+struct song_node *free_list(struct song_node *s) {
 	struct song_node *n = make_song("placeholder", "placeholder");
     return n;
 }
