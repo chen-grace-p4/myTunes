@@ -5,7 +5,7 @@ main.o: main.c myTunes.h tunesList.h
 myTunes.o: myTunes.c myTunes.h
 	gcc -c myTunes.c
 tunesList.o: tunesList.c tunesList.h
-  gcc -c tunesList.c
+	gcc -c tunesList.c
 run:
 	./program 
 clean:
