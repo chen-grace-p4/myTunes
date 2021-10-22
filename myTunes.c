@@ -56,11 +56,30 @@ struct song_node * return_random(struct song_node *front) {
     return n;
 }
 struct song_node * remove_node(struct song_node *s, char *name, char *artist) {
-	struct song_node *n = make_song("placeholder", "placeholder");
-    return n;
+	struct song_node * front = current;
+	struct song_node * temp;
+	if ((current->name == name) && (current->artist == artist)) {
+		temp = current->next;
+		free(current);
+		return temp;
+	}
+	while (current) {
+		if ((current->name == name) && (current->artist == artist)) {
+			temp->next = current->next;
+			free(current);
+		}
+		temp = current;
+		current = current->next;
+	}
+	return front;
 }
 struct song_node *free_list(struct song_node *s) {
-	struct song_node *n = make_song("placeholder", "placeholder");
-    return n;
+	struct song_node * temp = s;
+	while(s) {
+		s = s->next;
+		free(temp);
+		temp = s;
+	}
+	return s;
 }
 
