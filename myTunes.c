@@ -10,7 +10,6 @@ struct song_node{
   	struct song_node *next;
 };
 
-//	CHANGE ALL NAME TO SONG AND SWITCH ORDER
 struct song_node * make_song(char *song, char *artist) {
   struct song_node *n;
   n = malloc(sizeof(struct song_node));
@@ -73,12 +72,26 @@ struct song_node * find_artist(struct song_node *s, char *artist) {
 	return s;
 }
 
-struct song_node * return_random(struct song_node *front) {
-	srand(time(0));
-	int randInd = rand() % 28;
-	int i;
-	while(i <= randInd) {
+int listlength(struct song_node *front) {
+	int length = 0;
+	while (front) {
+		length++;
 		front = front->next;
+	}
+	return length;
+}
+
+struct song_node * return_random(struct song_node *front) {
+	int randInd = rand() % (listlength(front));
+	//printf("%d", randInd);
+	//int randInd = 2;
+	int i = 0;
+
+	if (i == randInd) return front;
+
+	while(i < randInd) {
+		front = front->next;
+		i++;
 	}
 	return front;
 }
