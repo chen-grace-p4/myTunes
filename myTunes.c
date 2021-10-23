@@ -43,14 +43,16 @@ struct song_node * insert_order(struct song_node *order, char *artist, char *nam
 }
 
 void print_node(struct song_node * s) {
-   printf("song name: '%s'\tartist: '%s' \n", s->song, s->artist);
+   printf("{song name: '%s'\tartist: '%s' }\n", s->song, s->artist);
 }
 
 void print_list(struct song_node * current) {
+	printf("[  ");
    while (current != NULL) {
       print_node(current);
       current = current->next;
    }
+   printf("]\n");
 }
 
 struct song_node * find(struct song_node *s, char *song, char *artist) {
