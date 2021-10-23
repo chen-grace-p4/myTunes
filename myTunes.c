@@ -26,12 +26,6 @@ struct song_node * insert_front(struct song_node *front, char *song, char *artis
     return n;
 }
 
-//*****STILL NEED TO COMPLETE****
-struct song_node * insert_order(struct song_node *order, char *artist, char *name) {
-	struct song_node *n = make_song(name, artist);
-	
-    return n;
-}
 //USE HELPER FUNCTION TO EFFECTIVELY COMPARE SONG NODES
 // struct song_node * cmp_artist(struct song_node *front, char *artist) {
 // 	struct song_node *n = 
@@ -40,6 +34,13 @@ struct song_node * insert_order(struct song_node *order, char *artist, char *nam
 //	- artist -> list[]
 // 	*/
 // }
+
+//*****STILL NEED TO COMPLETE****
+struct song_node * insert_order(struct song_node *order, char *artist, char *name) {
+	struct song_node *n = make_song(name, artist);
+	
+    return n;
+}
 
 void print_node(struct song_node * s) {
    printf("song name: '%s'\tartist: '%s' \n", s->song, s->artist);
@@ -99,13 +100,13 @@ struct song_node * return_random(struct song_node *front) {
 struct song_node * remove_node(struct song_node *current, char *song, char *artist) {
 	struct song_node * front = current;
 	struct song_node * temp;
-	if ((current->song == song) && (current->artist == artist)) {
+	if ((strcmp(current->song, song) == 0) && (strcmp(current->artist, artist) == 0)) {
 		temp = current->next;
 		free(current);
 		return temp;
 	}
 	while (current) {
-		if ((current->song == song) && (current->artist == artist)) {
+		if ((strcmp(current->song, song) == 0) && (strcmp(current->artist, artist) == 0)) {
 			temp->next = current->next;
 			free(current);
 		}

@@ -25,6 +25,14 @@ int main() {
 	char* s4 = "kill this love";
 	list = insert_front(list, s4, a4);
 
+	char* a5 = "blackpink";
+	char* s5 = "boombayah";
+	list = insert_front(list, s5, a5);
+
+	char* a6 = "backstreet boys";
+	char* s6 = "everybody";
+	list = insert_front(list, s6, a6);
+
 	printf("LINKED LIST TESTS\n");
 	printf("====================================\n");
 	printf("Testing print_list:\n");
@@ -49,5 +57,33 @@ int main() {
 	print_node(return_random(list));
 	print_node(return_random(list));
 	print_node(return_random(list));
+
+	printf("====================================\n");
+	printf("Testing remove_node:\n");
+	printf("[Removing dynamite by bts] \n");
+	list = remove_node(list, "dynamite", "bts");
+	print_list(list);
+
+	printf("[Removing awake by bts] \n");
+	list = remove_node(list, "awake", "bts");
+	print_list(list);
+
+	printf("[Removing everybody by backstreet boys] \n");
+	list = remove_node(list, "everybody", "backstreet boys");
+	print_list(list);
+
+	printf("[Removing dynamite by bts] (no longer in list) \n");
+	list = remove_node(list, "dynamite", "bts");
+	print_list(list);
 	
+	printf("====================================\n");
+	printf("Testing free_list:\n");
+	printf("List before freeing:\n");
+	print_list(list);
+	list = free_list(list);
+	printf("Freed list:\n");
+	print_list(list);
+	
+
+	struct song_node **library = make_library();
 }
