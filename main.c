@@ -29,8 +29,13 @@ int main() {
 	print_node(list);
 
 	printf("====================================\n");
-	printf("Testing find_node:\n");
-	printf("looking for eve: leo")
-	print_node(list);
+	printf("Testing find:\n");
+	printf("looking for eve: leo \n");
+	print_node(find(list, "leo", "eve"));
+
+	printf("====================================\n");
+	printf("Testing find_artist:\n");
+	printf("looking for first song bts \n");
+	print_node(find_artist(list, "bts"));
 	
 }
