@@ -191,7 +191,10 @@ int main() {
 
 	printf("====================================\n");
 	printf("Testing shuffle:\n");
+	printf("Returning 5 random:\n");
 	shuffle(library, 5);
+	printf("Returning 8 random:\n");
+	shuffle(library, 8);
 	
 	printf("====================================\n");
 	printf("Testing clear_library:\n");
