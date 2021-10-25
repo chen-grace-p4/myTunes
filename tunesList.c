@@ -23,9 +23,10 @@ int find_ind(char * artist) {
 
 struct song_node ** add_song(struct song_node **library, char * song, char * artist) {
 	int index = find_ind(artist);
-	//TEMPOERARILY INSERT FRONT BELOW, CHANGE TO INSERT ORDER LATER
-	//library[index] = insert_order(library[index], song, artist);
-	library[index] = insert_front(library[index], song, artist);
+	//printf("%d", index);
+	library[index] = insert_order(library[index], song, artist);
+	//print_list(library[index]);
+	//library[index] = insert_front(library[index], song, artist);
 	return library;
 }
 //returns pointer to found song
@@ -45,6 +46,7 @@ void print_letter(struct song_node ** lib, char letter) {
 	int index = 0;
 	if ((int)let >= 97 && (int)let <=122) {
 		index = (int)let - 97;
+		//printf("%d", index);
 	} else {
 		index = 26;
 	}
@@ -102,7 +104,7 @@ struct song_node ** clear(struct song_node ** lib) {
 	int i;
 	for (i = 0; i < 27; i++) {
 		lib[i] = free_list(lib[i]);
-		printf("freed\n");
+		//printf("freed\n");
 	}
 	return lib;
 }
